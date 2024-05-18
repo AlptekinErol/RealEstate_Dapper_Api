@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@await Component.InvokeAsync("_DefaultFeatureViewComponentPartial") @* Özelikkler partial view kısmı*@
+
+@await Component.InvokeAsync("_DefaultHomePageProductListViewComponentPartial") @* Öne çıkanlar partial view kısmı*@
+
+@await Component.InvokeAsync("_DefaultWhoWeAreViewComponentPartial") @* Biz Kimiz partial view kısmı*@
+
+@*Service gelicek*@
+
+@await Component.InvokeAsync("_DefaultProductListExploreCitiesViewComponentPartial") @* Biz Kimiz partial view kısmı*@
+
+@*Service gelicek*@
+
+@await Component.InvokeAsync("_DefaultSubFeatureViewComponentPartial") @* Sub Feature partial view kısmı*@
+
+@await Component.InvokeAsync("_DefaultDiscountOfDayViewComponentPartial") @* Discount partial view kısmı*@
+
+@await Component.InvokeAsync("_DefaultBrandViewComponentViewComponentPartial") @* Markalar partial view kısmı*@
+

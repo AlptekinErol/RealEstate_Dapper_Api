@@ -10,5 +10,6 @@
         public string? Coverimage { get; set; }
         public string? Type { get; set; }
         public string? Address { get; set; }
+        public int CategoryID { get; set; }
     }
 }

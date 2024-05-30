@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.DTOs.ProductDTOs;
 using System.Text;
@@ -31,8 +32,21 @@ namespace RealEstate_Dapper_UI.Controllers
 
 
         [HttpGet]
-        public IActionResult CreateProduct()
+        public async Task<IActionResult> CreateProduct()
         {
+            var client = _client;
+            var responseMessage = await client.GetAsync("https://localhost:44338/api/Categories");
+
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<CreateProductDTO>>(jsonData);
+
+            List<SelectListItem> categoryValues = (from x in values.ToList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.Name,
+                                                       Value=x.CategoryID.ToString()
+                                                   }).ToList();
+            ViewBag.Data = categoryValues;
             return View();
         }
 

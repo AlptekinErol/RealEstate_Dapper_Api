@@ -20,7 +20,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepositories
             using (var connection = _context.CreateConnection())
             {
                 var paramaters = new DynamicParameters();
-                paramaters.Add("@EmployeeName", createEmployeeDTO.EmployeeName);
+                paramaters.Add("@EmployeeName", createEmployeeDTO.Name);
                 paramaters.Add("@Title", createEmployeeDTO.Title);
                 paramaters.Add("@Mail", createEmployeeDTO.Mail);
                 paramaters.Add("@PhoneNumber", createEmployeeDTO.PHoneNumber);
@@ -70,7 +70,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepositories
         {
             string query = "Update Employee Set Name=@EmployeeName, Title=@Title ,Mail=@Mail ,PhoneNumber=@PhoneNumber,ImageUrl=@ImageUrl,Status=@Status where EmployeeId=@EmployeeId";
             var parameters = new DynamicParameters();
-            parameters.Add("EmployeeName", updateEmployeeDTO.EmployeeName);
+            parameters.Add("EmployeeName", updateEmployeeDTO.Name);
             parameters.Add("Title", updateEmployeeDTO.Title);
             parameters.Add("Mail", updateEmployeeDTO.Mail);
             parameters.Add("PhoneNumber", updateEmployeeDTO.PHoneNumber);

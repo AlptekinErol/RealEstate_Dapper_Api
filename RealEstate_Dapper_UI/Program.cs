@@ -1,5 +1,7 @@
-var builder = WebApplication.CreateBuilder(args);
+using RealEstate_Dapper_UI.UIServices.EmployeeStatisticServices;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<IEmployeeStatisticService, EmployeeStatisticService>();
 // Add services to the container.
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();

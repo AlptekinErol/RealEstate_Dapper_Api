@@ -2,7 +2,7 @@
 {
     public class CreateEmployeeDTO
     {
-        public string? EmployeeName { get; set; }
+        public string? Name { get; set; }
         public string? Title { get; set; }
         public string? Mail { get; set; }
         public string? PHoneNumber { get; set; }

@@ -1,4 +1,4 @@
-﻿@model EmployeStatisticViewModel;
+﻿@model StatisticDashboardCompositeViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Admin/Index.cshtml";
@@ -6,21 +6,12 @@
 
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
-        @*  <div class="col-sm-6 col-xl-3">
-        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-        <i class="fa fa-chart-line fa-3x text-primary"></i>
-        <div class="ms-3">
-        <p class="mb-2">Aktif Kategori Sayısı</p>
-        <h6 class="mb-0">@ViewBag.ActiveCateCount</h6>
-        </div>
-        </div>
-        </div> *@
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-bar fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Aktif Çalışan sayısı</p>
-                    <h6 class="mb-0">@Model.EmployeeCount</h6>
+                    <h6 class="mb-0">@Model.EmployeeData.EmployeeCount</h6>
                 </div>
             </div>
         </div>
@@ -29,7 +20,16 @@
                 <i class="fa fa-chart-area fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">En fazla ürünü bulunan Çalışan</p>
-                    <h6 class="mb-0">@Model.Name</h6>
+                    <h6 class="mb-0">@Model.EmployeeData.Name</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Toplam Ürün Sayısı</p>
+                    <h6 class="mb-0">@Model.ProductData.ProductCount</h6>
                 </div>
             </div>
         </div>
@@ -37,8 +37,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-pie fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Son ürün Fiyatı</p>
+                    <h6 class="mb-0">@Model.ProductData.LastProductPrice</h6>
                 </div>
             </div>
         </div>
@@ -51,8 +51,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-line fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Today Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Kaç Farklı Şehir Mevcut</p>
+                    <h6 class="mb-0">@Model.ProductData.DifferentCityCount</h6>
                 </div>
             </div>
         </div>
@@ -60,8 +60,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-bar fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">En fazla ürün bulunan şehir</p>
+                    <h6 class="mb-0">@Model.ProductData.CityNameByMaxProductCount</h6>
                 </div>
             </div>
         </div>
@@ -69,8 +69,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-area fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Today Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Ortalama Kira Fiyatı</p>
+                    <h6 class="mb-0">@Model.ProductData.AverageProductPriceByRent</h6>
                 </div>
             </div>
         </div>
@@ -78,8 +78,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-pie fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Ortalama Satılık Fiyatı</p>
+                    <h6 class="mb-0">@Model.ProductData.AverageProductPriceBySale</h6>
                 </div>
             </div>
         </div>
@@ -92,8 +92,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-line fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Today Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Daire Sayısı</p>
+                    <h6 class="mb-0">@Model.ProductData.ApartmentCount</h6>
                 </div>
             </div>
         </div>
@@ -101,8 +101,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-bar fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Ortalama Odas Sayısı</p>
+                    <h6 class="mb-0">@Model.ProductDetailsData.AvereageRoomCount</h6>
                 </div>
             </div>
         </div>
@@ -110,8 +110,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-area fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Today Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">En Yeni Bina yılı</p>
+                    <h6 class="mb-0">@Model.ProductDetailsData.NewestBuildingYear</h6>
                 </div>
             </div>
         </div>
@@ -119,8 +119,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-pie fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">En Eski Bina yılı</p>
+                    <h6 class="mb-0">@Model.ProductDetailsData.OldestBuildingYear</h6>
                 </div>
             </div>
         </div>
@@ -133,8 +133,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-line fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Today Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Kategori Sayısı</p>
+                    <h6 class="mb-0">@Model.CategoryData.CategoryCount</h6>
                 </div>
             </div>
         </div>
@@ -142,8 +142,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-bar fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Deaktif Kategori Sayımız</p>
+                    <h6 class="mb-0">@Model.CategoryData.DeactiveCategoryCount</h6>
                 </div>
             </div>
         </div>
@@ -151,8 +151,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-area fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Today Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">Aktif Kategori Sayımız</p>
+                    <h6 class="mb-0">@Model.CategoryData.ActiveCategoryCount</h6>
                 </div>
             </div>
         </div>
@@ -160,8 +160,8 @@
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-pie fa-3x text-primary"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Total Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+                    <p class="mb-2">En çok ürün bulunan kategori</p>
+                    <h6 class="mb-0">@Model.CategoryData.CategoryNameByMaxProductCount</h6>
                 </div>
             </div>
         </div>

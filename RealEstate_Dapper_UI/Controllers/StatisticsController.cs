@@ -1,32 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using RealEstate_Dapper_UI.Models.CompositeDashboardViewModel;
 using RealEstate_Dapper_UI.Models.EmployeeStatisticsViewModel;
+using RealEstate_Dapper_UI.Models.ProductStatisticsViewModel;
+using RealEstate_Dapper_UI.UIServices.CompositeDashboardService;
 using RealEstate_Dapper_UI.UIServices.EmployeeStatisticServices;
 
 namespace RealEstate_Dapper_UI.Controllers
 {
     public class StatisticsController : Controller
     {
-        private readonly IEmployeeStatisticService _employeeStatisticService;
-        public StatisticsController(IEmployeeStatisticService employeeStatisticService)
+        private readonly  IDashboardService _dashboardService;
+
+        public StatisticsController(IDashboardService dashboardService)
         {
-            _employeeStatisticService = employeeStatisticService;
+            _dashboardService = dashboardService;
         }
+
         public async Task<IActionResult> Index()
         {
-                    // Employee Statistic part
-            var employeeCount = await _employeeStatisticService.ActiveEmployeeCounter();
-            var employeeName = await _employeeStatisticService.EmployeeNameByMaxProduct();
-
-            var model = new EmployeStatisticViewModel
-            {
-                Name = employeeName,
-                EmployeeCount = employeeCount
-            };
+            var model = await _dashboardService.GetDashboardData();
             return View(model);
-
-            
-
         }
     }
 }

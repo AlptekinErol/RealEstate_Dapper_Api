@@ -65,7 +65,7 @@ namespace RealEstate_Dapper_Api.Repositories.StatisticRepositories
             }
         }
 
-        public int AvereageRoomCount()   // çok sağlıklı bir method değil çünkü kiralık veya satılık türüne göre ortalam oda sayısı hesaplanmamış ??? ama AVG fonk pratiği
+        public int AverageRoomCount()   // çok sağlıklı bir method değil çünkü kiralık veya satılık türüne göre ortalam oda sayısı hesaplanmamış ??? ama AVG fonk pratiği
         {
             string query = "select AVG(RoomCount) from ProductDetails";
             using (var connection = _context.CreateConnection())

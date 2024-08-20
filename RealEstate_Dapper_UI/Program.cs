@@ -1,7 +1,21 @@
+using RealEstate_Dapper_UI.UIServices.CategoryStatisticServices;
+using RealEstate_Dapper_UI.UIServices.CompositeDashboardService;
 using RealEstate_Dapper_UI.UIServices.EmployeeStatisticServices;
+using RealEstate_Dapper_UI.UIServices.ProductDetailsServices;
+using RealEstate_Dapper_UI.UIServices.ProductStatisticService;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Servislerin üst sýnýfý olan composite servis
+builder.Services.AddTransient<IDashboardService, DashboardService>();
+
+
+// istatiksel servislerin tanýmlamalarý
 builder.Services.AddTransient<IEmployeeStatisticService, EmployeeStatisticService>();
+builder.Services.AddTransient<IProductStatisticService, ProductStatisticService>();
+builder.Services.AddTransient<IProductDetailService, ProductDetailService>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
+
 // Add services to the container.
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();

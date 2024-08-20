@@ -15,7 +15,7 @@ namespace RealEstate_Dapper_Api.Controllers
             _statisticsRepository = statisticsRepository;
         }
 
-        [HttpGet("ActiveCagetoryCount")]
+        [HttpGet("ActiveCategoryCount")]
         public IActionResult ActiveCagetoryCount()
         {
             return Ok(_statisticsRepository.ActiveCategoryCount());  // mantık olarak api'den direkt olarak repoda bulunan methodu çalıştırmasını
@@ -28,7 +28,7 @@ namespace RealEstate_Dapper_Api.Controllers
             return Ok(_statisticsRepository.ActiveEmployeeCount()); // aynı basit mantık kullanıldı 19-25 arası kod bloklarında ki gibi
         }
 
-        [HttpGet("ApartmentCount()")]
+        [HttpGet("ApartmentCount")]
         public IActionResult ApartmentCount()
         {
             return Ok(_statisticsRepository.ApartmentCount()); // total daire sayısı
@@ -46,10 +46,10 @@ namespace RealEstate_Dapper_Api.Controllers
             return Ok(_statisticsRepository.AverageProductPriceBySale());
         }
 
-        [HttpGet("AvereageRoomCount")]
+        [HttpGet("AverageRoomCount")]
         public  IActionResult AvereageRoomCount()
         {
-            return Ok(_statisticsRepository.AvereageRoomCount());
+            return Ok(_statisticsRepository.AverageRoomCount());
         }
 
         [HttpGet("CategoryCount")]

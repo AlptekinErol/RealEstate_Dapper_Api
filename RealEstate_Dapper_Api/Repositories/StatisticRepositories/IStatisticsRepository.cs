@@ -19,6 +19,6 @@
         string NewestBuildingYear(); // En yeni binanın ilanı
         string OldestBuildingYear(); // En eski binanın ilanı
         int ActiveEmployeeCount(); // Aktif çalışan sayısı
-        int AvereageRoomCount(); // Ortalama oda sayısı
+        int AverageRoomCount(); // Ortalama oda sayısı
     }
 }

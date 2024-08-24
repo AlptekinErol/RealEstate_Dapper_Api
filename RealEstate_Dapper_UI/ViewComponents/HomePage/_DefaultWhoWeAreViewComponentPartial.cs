@@ -37,6 +37,8 @@ namespace RealEstate_Dapper_UI.ViewComponents.HomePage
                 return View(value2);
             }
             return View();
+
+            // bu sayfa sonlara doğru SOLID ile revize edilmesi gerekiyor!
         }
     }
 }

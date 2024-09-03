@@ -46,7 +46,8 @@ namespace RealEstate_Dapper_UI.Controllers
                 return RedirectToAction("Index");
             }
             return View();
-        } 
+        }
+      
         public async Task<IActionResult> DeleteEmployee(int id)
         {
             var client = _client;

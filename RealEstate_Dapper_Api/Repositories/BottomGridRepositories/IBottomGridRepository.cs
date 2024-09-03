@@ -9,6 +9,6 @@ namespace RealEstate_Dapper_Api.Repositories.BottomGridRepositories
         void CreateBottomGrid(CreateBottomGridDTO createBottomGridDTO);
         void UpdateBottomGrid (UpdateBottomGridDTO updateBottomGridDTO);
         void DeleteBottomGrid(int id);
-        Task<GetBottomGridDTO> GetBottomGridAsync(int id);
+        Task<GetBottomGridDTO> GetBottomGrid(int id);
     }
 }

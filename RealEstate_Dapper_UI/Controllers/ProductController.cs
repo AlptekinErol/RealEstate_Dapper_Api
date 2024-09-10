@@ -49,6 +49,28 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.Data = categoryValues;
             return View();
         }
+        public async Task<IActionResult> DealoftheDayActive(int id)
+        {
+            var client = _client; //kodu kısalttık...
+            var responseMessage = await client.GetAsync("https://localhost:44338/api/Products/DealoftheDayActive/" +id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+              
+                return RedirectToAction("Index"); 
+            }
+            return View();
+        }
 
+        public async Task<IActionResult> DealoftheDayPassive(int id)
+        {
+            var client = _client; //kodu kısalttık...
+            var responseMessage = await client.GetAsync("https://localhost:44338/api/Products/DealoftheDayPassive/" + id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }

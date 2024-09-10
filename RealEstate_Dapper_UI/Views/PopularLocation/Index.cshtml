@@ -33,7 +33,7 @@
                                 <tr>
                                     <th scope="row">@count</th>
                                     <td><img src="@item.ImageURL" height="50" width="50"/>  @item.CityName</td>
-                                    <td><a href="/PopularLocation/DeletePopularLocation/@item.LocationID" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/PopularLocation/DeletePopularLocation/@item.LocationID" class="btn btn-outline-danger" onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</a></td>
                                     <td><a href="/PopularLocation/UpdatePopularLocation/@item.LocationID" class="btn btn-outline-success">Güncelle</a></td>
                                 </tr>
                             }

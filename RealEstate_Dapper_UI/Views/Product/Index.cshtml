@@ -43,16 +43,16 @@
                                     <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-outline-danger">Sil</a></td>
                                     <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-success">Güncelle</a></td>
                                     <td><a href="/Product/ProductDetail/@item.ProductId" class="btn btn-outline-primary">Sitede Gör</a></td>
-                                   @*  <td>
-                                        @if (item. == true)
+                                    <td>
+                                        @if (item.DealoftheDay == true)
                                         {
-                                            <a href="/Product/ProductDealOfTheDayStatusChangeToFalse/@item.ProductId" class="btn btn-outline-secondary">Pasif Yap</a>
+                                            <a href="/Product/DealoftheDayPassive/@item.ProductId" class="btn btn-outline-secondary">Pasif Yap</a>
                                         }
-                                        @if (item.dealOfTheDay == false)
+                                        @if (item.DealoftheDay == false)
                                         {
-                                            <a href="/Product/ProductDealOfTheDayStatusChangeToTrue/@item.ProductId" class="btn btn-outline-warning">Aktif Yap</a>
+                                            <a href="/Product/DealoftheDayACtive/@item.ProductId" class="btn btn-outline-warning">Aktif Yap</a>
                                         }
-                                    </td> *@
+                                    </td>
                                 </tr>
                             }
                         </tbody>

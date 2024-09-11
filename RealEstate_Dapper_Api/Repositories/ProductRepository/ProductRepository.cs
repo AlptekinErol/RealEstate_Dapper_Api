@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using RealEstate_Dapper_Api.DTOs.ProductDTOs;
 using RealEstate_Dapper_Api.Models.DapperContext;
+using RealEstate_Dapper_UI.DTOs.ProductDTOs;
 
 namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 {
@@ -52,6 +53,16 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultProductWithCategoryDTO>(query);
+                return values.ToList();
+            }
+        }
+
+        public async Task<List<ResultLast5ProductWithCategoryDTO>> GetLast5Product()
+        {
+            string query = "Select Top(5) ProductId,Title,Price,City,District,ProductCategory,Name,AdvertisementDate From Product Inner Join Category on Product.ProductCategory = Category.CategoryId Where Type = 'Kiralık' Order By ProductId Desc";
+            using(var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultLast5ProductWithCategoryDTO>(query);
                 return values.ToList();
             }
         }
